@@ -57,9 +57,9 @@ This makes VirusTotal a critical component in modern incident response workflows
 ***
 
 ### 🔹 Phantom Stealer: Why This Threat Was Chosen 
-Phantom Stealer is an infostealer malware that targets browsers credentials, saved passswords, cookies, cryptocurrency wallets, and Discord session tokens. Because it is able to exfiltrate sensitive data quickly after an infectdion, analysts have a very narrorw window to detectd and contain it. 
+Phantom Stealer is an infostealer malware that targets browsers credentials, saved passswords, cookies, cryptocurrency wallets, and Discord session tokens. Because it is able to exfiltrate sensitive data quickly after an infection, analysts have a very narrow window to detect and contain it. 
 
-The January 2026 sample obtained from malware-traffic-analysis.net was chosen because it represents a current, real world threat with cleraly documented IOCs across multiple types of file hashes, IP adresses, and domains. This made it an ideal demonstration for how a python automated VirusTotal workflow can be applied to a realistic incident response scenario. Rather than using generic IOCs, working from an actual malware sample grounds the prjoect in similar conditions to what a SOC analyst would have to deal with. The detection results produced by our script reflect. 
+The January 2026 sample obtained from malware-traffic-analysis.net was chosen because it represents a current, real world threat with clearly documented IOCs across multiple types of file hashes, IP adresses, and domains. This made it an ideal demonstration for how a python automated VirusTotal workflow can be applied to a realistic incident response scenario. Rather than using generic IOCs, working from an actual malware sample grounds the prjoect in similar conditions to what a SOC analyst would have to deal with. 
 
 ## 🔷 Methodology
 
