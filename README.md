@@ -26,11 +26,11 @@ VirusTotal plays a critical role across multiple phases of the Incident Response
 
 | IR Phase      | Role of VirusTotal |
 |--------------|------------------|
-| Detection     | Identify suspicious or known malicious indicators from alerts or logs |
-| Analysis      | Investigate IOCs such as file hashes, domains, and IP addresses |
-| Containment   | Support blocking of malicious infrastructure (IPs/domains) |
-| Eradication   | Validate removal of known threats from systems |
-| Recovery      | Ensure systems are no longer communicating with malicious entities |
+| Detection     | Identifies suspicious or known malicious indicators from alerts or logs |
+| Analysis      | Investigates IOCs such as file hashes, domains, and IP addresses |
+| Containment   | Provides intelligence used to block malicious infrastructure (IPs/domains) |
+| Eradication   | Validates removal of known threats by re-checking associated IOCs |
+| Recovery      | Helps verify that systems are no longer communicating with known malicious entities |
 
 ### 🔹 Practical Use in Real-World Scenarios
 
@@ -56,5 +56,93 @@ However, it is important to note that VirusTotal is a **supporting tool**, not a
 This makes VirusTotal a critical component in modern incident response workflows, particularly for initial threat validation and investigation.
 ***
 
+## 🔷 Methodology
 
+### 🔹 Tools & Technologies
+
+- Python (for scripting and automation)
+- VirusTotal API (for IOC analysis)
+- CSV (for structured data storage)
+- Visualization tools (e.g., matplotlib or similar) *(if used)*
+
+### 🔹 Data Source
+
+The Indicators of Compromise (IOCs) used in this project were derived from a Phantom Stealer malware sample (2026-01-30), obtained from:
+
+- https://www.malware-traffic-analysis.net/
+
+Types of IOCs analyzed:
+- File hashes (MD5/SHA256)
+- IP addresses
+- Domain names
+
+These IOCs were extracted and manually selected for automated analysis.  
+*(Teammate: briefly describe how the IOCs were collected or chosen)*
+
+### 🔹 Script Functionality
+
+A Python-based script was developed to automate the process of querying VirusTotal for IOC analysis.
+
+#### Core Features:
+
+- Accepts input IOCs (file hashes, IPs, domains)
+- Sends API requests to VirusTotal
+- Extracts detection statistics:
+  - Malicious
+  - Suspicious
+  - Harmless
+  - Undetected
+- Outputs results to a CSV file
+
+*(Teammate: describe any additional functionality such as loops, filtering, or error handling)*
+
+### 🔹 API Interaction
+
+The script interacts with the VirusTotal API by:
+
+1. Authenticating using an API key  
+2. Sending requests for each IOC  
+3. Receiving and parsing JSON responses  
+4. Extracting relevant detection statistics  
+
+*(Teammate: specify how requests are made — e.g., Python libraries used, API endpoints, request format)*
+
+### 🔹 Data Processing & Output
+
+- Each IOC is processed individually  
+- Results are formatted into rows containing:
+  - IOC value  
+  - IOC type  
+  - Detection counts  
+- Output is saved as a `.csv` file in the `results/` folder  
+
+*(Teammate: explain how data is structured or formatted in the CSV file)*
+
+### 🔹 Visualization
+
+Detection results are visualized to support analysis.
+
+Possible visualizations include:
+- Pie charts showing counts for Malicious, Suspicious, Harmless, Undetected  
+- Distribution of detection counts across IOC types  
+
+*(Teammate: describe what visualizations were created and what tools/libraries were used)*
+
+### 🔹 Workflow
+
+The overall workflow of the project is as follows:
+
+1. Collect IOCs from malware sample  
+2. Input IOCs into the Python script  
+3. Query VirusTotal API for each IOC  
+4. Extract detection results  
+5. Save results to CSV  
+6. Generate visualizations  
+7. Analyze results in an incident response context  
+
+### 🔹 Workflow Diagram
+
+![Workflow](images/workflow.png)
+
+*(Teammate: create or upload a diagram showing this process if possible)*
 
