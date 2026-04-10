@@ -1,2 +1,3 @@
-# BFOR643-VirusTotal-IR-Analysis
-Incident Response project using VirusTotal API to analyze and visualize IOCs from a Phantom Stealer malware sample.
+# VirusTotal Incident Response Analysis: IOC Investigation Using API Automation
+Final Project | BFOR 643 - Incident Handling
+
