@@ -144,7 +144,7 @@ The overall workflow of the project is as follows:
 
 ![Workflow](images/workflow.png)
 
-*(Teammate: create or upload a diagram showing this process if possible)*
+*(Teammate: maybe create a diagram showing this process if possible)*
 ***
 
 
