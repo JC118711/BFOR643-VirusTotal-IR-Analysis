@@ -28,7 +28,7 @@ VirusTotal plays a critical role across multiple phases of the Incident Response
 |--------------|------------------|
 | Detection     | Identifies suspicious or known malicious indicators from alerts or logs |
 | Analysis      | Investigates IOCs such as file hashes, domains, and IP addresses |
-| Containment   | Provides intelligence used to block malicious infrastructure (IPs/domains) |
+| Containment   | Provides intelligence that can be used to block malicious infrastructure (IPs/domains) |
 | Eradication   | Validates removal of known threats by re-checking associated IOCs |
 | Recovery      | Helps verify that systems are no longer communicating with known malicious entities |
 
@@ -154,4 +154,4 @@ The overall workflow of the project is as follows:
 *(Teammate: maybe create a diagram showing this process if possible)*
 ***
 
-
+## 🔷 Results Summary
