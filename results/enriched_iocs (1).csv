@@ -1,0 +1,4 @@
+ioc,type,malicious,suspicious,harmless,undetected,risk
+a5952e45646d033bff8380fc508a0b9527bb4943f2788046005f0e80e6ebb290,hash,23,0,0,39,HIGH
+scxzswx.lovestoblog.com,domain,17,1,44,32,HIGH
+185.38.151.11,ip,2,0,55,37,LOW
