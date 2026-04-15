@@ -62,6 +62,7 @@ Phantom Stealer is an infostealer malware that targets browser credentials, save
 The January 2026 sample obtained from malware-traffic-analysis.net was chosen because it represents a current, real world threat with clearly documented IOCs across multiple types of file hashes, IP addresses, and domains. This made it an ideal demonstration for how a python automated VirusTotal workflow can be applied to a realistic incident response scenario. Rather than using generic IOCs, working from an actual malware sample grounds the project in similar conditions to what a SOC analyst would have to deal with. 
 
 Phantom Stealer is usually delivered using phishing emails containing malicious ISO files that are designed to bypass email based antivirus scanning. Once executed it then exfiltrates stolen data through telegram bot APIs, Discord webhooks, and FTP servers. The reliance on external infrastructure means that domains and IP addresses associated with the sample are highly actionable IOCs. That is why blocking them at the network level is one of the most effective ways for containment that an analyst can take during an active incident. 
+***
 
 ## 🔷 Methodology
 
