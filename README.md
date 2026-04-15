@@ -150,9 +150,7 @@ The overall workflow of the project is as follows:
 
 ### 🔹 Workflow Diagram
 
-![Workflow](images/workflow.png)
-
-*(Teammate: maybe create a diagram showing this process if possible)*
+![Workflow](images/WorkflowDiagram.png)
 ***
 
 ## 🔷 Results Summary
