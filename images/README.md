@@ -1,6 +1,3 @@
 # Images Folder
+- This folder contains the workflow diagram
 
-This folder will contain:
-- Charts
-- Screenshots of VirusTotal results
-- Workflow diagrams
