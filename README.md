@@ -69,6 +69,7 @@ Phantom Stealer is usually delivered using phishing emails containing malicious 
 ### 🔹 Tools & Technologies
 
 - Python (for scripting and automation)
+- Python - dotenv (for secure API key management)
 - VirusTotal API (for IOC analysis)
 - CSV (for structured data storage)
 - Visualization tools (e.g., matplotlib or similar) *(if used)*
@@ -93,55 +94,58 @@ A Python-based script was developed to automate the process of querying VirusTot
 
 #### Core Features:
 
-- Accepts input IOCs (file hashes, IPs, domains)
+- Accepts a list of IOCs as input (file hashes, IPs, domains)
+- Processes multiple IOCs sequentially using iteration
+- Automatically determines IOC type (IP, domain, or file hash)
 - Sends API requests to VirusTotal
 - Extracts detection statistics:
   - Malicious
   - Suspicious
   - Harmless
   - Undetected
+- Assigns risk levels (HIGH, MEDIUM, LOW) based on malicious detection counts
 - Outputs results to a CSV file
-
-*(Teammate: describe any additional functionality such as loops, filtering, or error handling)*
 
 ### 🔹 API Interaction
 
 The script interacts with the VirusTotal API by:
 
 1. Authenticating using an API key  
-2. Sending requests for each IOC  
-3. Receiving and parsing JSON responses  
-4. Extracting relevant detection statistics  
+2. Sending HTTP GET requests to VirusTotal v3 endpoints:
+  - /ip_address/{ip}
+  - /domains/{domains}
+  - /files/{hash} 
+4. Receiving and parsing JSON responses  
+5. Extracting relevant detection statistics  
 
 *(Teammate: specify how requests are made — e.g., Python libraries used, API endpoints, request format)*
 
 ### 🔹 Data Processing & Output
 
-- Each IOC is processed individually  
+- Each IOC is processed individually using iteration
 - Results are formatted into rows containing:
   - IOC value  
-  - IOC type  
-  - Detection counts  
+  - IOC type (IP, domain, or file hash)
+  - Detection counts (malicious, suspicious, harmless, undetected)
+- Enriches data by assigning a risk level (HIGH, MEDIUM, LOW) based on malicious detection counts
+- Results are sorted by malicious detection count in descending order
 - Output is saved as a `.csv` file in the `results/` folder  
 
 *(Teammate: explain how data is structured or formatted in the CSV file)*
 
 ### 🔹 Visualization
 
-Detection results are visualized to support analysis.
-
-Possible visualizations include:
-- Pie charts showing counts for Malicious, Suspicious, Harmless, Undetected  
-- Distribution of detection counts across IOC types  
-
-*(Teammate: describe what visualizations were created and what tools/libraries were used)*
+- Detection results are visualized to support analysis
+- Generates pie charts for each IOC showing counts for Malicious, Suspicious, Harmless, Undetected  
+- Filters out zero-value detection categories for cleaner and more readable visualizations
+- Color-codes results (malicious = red, suspicious = yellow, harmless = green, undetected = gray)
 
 ### 🔹 Workflow
 
 The overall workflow of the project is as follows:
 
 1. Collect IOCs from malware sample  
-2. Input IOCs into the Python script  
+2. Provide IOCs as input (manually defined list or external file) 
 3. Query VirusTotal API for each IOC  
 4. Extract detection results  
 5. Save results to CSV  
