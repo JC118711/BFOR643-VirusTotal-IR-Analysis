@@ -112,7 +112,7 @@ The script interacts with the VirusTotal API by:
 1. Authenticating using an API key  
 2. Sending HTTP GET requests to VirusTotal v3 endpoints:
    - /ip_address/{ip}
-   - /domains/{domains}
+   - /domains/{domain}
    - /files/{hash}
 3. Receiving API responses
 4. Parsing JSON responses  
