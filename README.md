@@ -86,7 +86,6 @@ Types of IOCs analyzed:
 - Domain names
 
 These IOCs were extracted and manually selected for automated analysis.  
-*(Teammate: briefly describe how the IOCs were collected or chosen)*
 
 ### 🔹 Script Functionality
 
@@ -119,8 +118,6 @@ The script interacts with the VirusTotal API by:
 4. Parsing JSON responses  
 5. Extracting relevant detection statistics  
 
-*(Teammate: specify how requests are made — e.g., Python libraries used, API endpoints, request format)*
-
 ### 🔹 Data Processing & Output
 
 - Each IOC is processed individually using iteration
@@ -131,8 +128,6 @@ The script interacts with the VirusTotal API by:
 - Enriches data by assigning a risk level (HIGH, MEDIUM, LOW) based on malicious detection counts
 - Results are sorted by malicious detection count in descending order
 - Output is saved as a `.csv` file in the `results/` folder  
-
-*(Teammate: explain how data is structured or formatted in the CSV file)*
 
 ### 🔹 Visualization
 
