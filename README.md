@@ -129,8 +129,6 @@ The script interacts with the VirusTotal API by:
 - Results are sorted by malicious detection count in descending order
 - Output is saved as a `.csv` file in the `results/` folder
 
-![Tabulate Output from Script](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/Script-Output.png)
-
 ### 🔹 Visualization
 
 - Detection results are visualized to support analysis
@@ -158,3 +156,19 @@ The overall workflow of the project is as follows:
 ***
 
 ## 🔷 Results Summary
+
+Overall, 5 of the identified IOCs were returned from VirusTotal with high malicious scores. The image below visualizes the output to the console after running the script. 
+
+![Tabulate Output from Script](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/Script-Output.png)
+
+The piecharts produced helped to visualize the data above. Buisness logic dicated that if an IOC was detected Malicious by 10 or more sources from VirusTotal, it would be marked as a high risk; 3 or more and it would be marked as medium risk, and lower that 3 Malicious detections would result it being classified as low risk. 
+
+![Example Visualization](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/ioc_pie_chart_scxzswx.lovestoblog.com.png)
+
+Overall, the data returned by VirusTotal quickly revealed to Incident Response Analysts hashes and domains that sit at the root of the PhantomStealer incident. From the data, analysts can quickly and effectively block traffic from these malicious domains or prevent the downloading of files that match these identified malicious hashes.
+
+## 🔷 Conclusion
+
+The project demonstrates the impact that automating IOC analysis with the VirusTotal API has on Incident Response. Automating the enrichment of IOCs can significantly improve the speed and effectiveness of incident response by enabling analysts to quickly validate threats and use community-based information to make informed decisions. By integrating scripting, data processing, and visualization, the workflow reduces manual effort while providing clear statistics that help support triage and threat prioritization.
+
+Future work on the project can look into the use of additional VirusTotal API endpoints, such as file behavior analysis and URL or file sandbox results. The endpoint provide additional context surrounding IOCs and can give IR Analysts a deeper understanding of the incident at hand. Additional visualization techniques could also be introduced to better highlight trends, relationships, and severity across large IOC datasets. Finally, further automation can be provided. Creating a python script to parse a .pcap file then feed potential IOCs into the current script helps further increase the speed of finding and verifying IOCs. Automation after the script highlighted here can also be introduced. Integrating the script with security tools to automatically block confirmed malicious domains and IP addresses, can help organizations and IR teams get ahead of incidents.
