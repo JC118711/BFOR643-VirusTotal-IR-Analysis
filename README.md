@@ -68,11 +68,10 @@ Phantom Stealer is usually delivered using phishing emails containing malicious 
 
 ### 🔹 Tools & Technologies
 
-- Python (for scripting and automation)
-- Python - dotenv (for secure API key management)
-- VirusTotal API (for IOC analysis)
-- CSV (for structured data storage)
-- Visualization tools (e.g., matplotlib or similar) *(if used)*
+- Python: scripting and automation
+- VirusTotal API: queried to enrich various IOCs
+- CSV file: used to store data returned from VirusTotal
+- matplotlib and tabulate: used to produce Visualizations (graphs saved to computer and table produced in console)
 
 ### 🔹 Data Source
 
@@ -109,14 +108,15 @@ A Python-based script was developed to automate the process of querying VirusTot
 
 The script interacts with the VirusTotal API by:
 
-1. Authenticating using an API key  
+1. Authenticating using an API key (set in the hidden .env file)
 2. Sending HTTP GET requests to VirusTotal v3 endpoints:
    - /ip_address/{ip}
    - /domains/{domain}
    - /files/{hash}
 3. Receiving API responses
 4. Parsing JSON responses  
-5. Extracting relevant detection statistics  
+5. Extracting relevant detection statistics
+6. Applying buisness logic to extracted data 
 
 ### 🔹 Data Processing & Output
 
@@ -127,7 +127,9 @@ The script interacts with the VirusTotal API by:
   - Detection counts (malicious, suspicious, harmless, undetected)
 - Enriches data by assigning a risk level (HIGH, MEDIUM, LOW) based on malicious detection counts
 - Results are sorted by malicious detection count in descending order
-- Output is saved as a `.csv` file in the `results/` folder  
+- Output is saved as a `.csv` file in the `results/` folder
+
+![Tabulate Output from Script](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/Script-Output.png)
 
 ### 🔹 Visualization
 
@@ -135,6 +137,8 @@ The script interacts with the VirusTotal API by:
 - Generates pie charts for each IOC showing counts for Malicious, Suspicious, Harmless, Undetected  
 - Filters out zero-value detection categories for cleaner and more readable visualizations
 - Color-codes results (malicious = red, suspicious = yellow, harmless = green, undetected = gray)
+
+![Example Visualization](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/ioc_pie_chart_scxzswx.lovestoblog.com.png)
 
 ### 🔹 Workflow
 
