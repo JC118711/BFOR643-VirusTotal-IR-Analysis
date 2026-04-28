@@ -1,0 +1,8 @@
+ioc,type,malicious,suspicious,harmless,undetected,risk
+a5952e45646d033bff8380fc508a0b9527bb4943f2788046005f0e80e6ebb290,hash,23,0,0,39,HIGH
+e263e41c5adb36fd21a26656f2478cbf5140846e872fd70c53341a71fb3d64f5,hash,22,0,0,39,HIGH
+d9c88c1a21fc918ce8082e3c71e47e8b7e694b6b1fab0d94693bba1ddc13e693,hash,22,0,0,40,HIGH
+ccba027446f898e9c330e570ec4d9a0bd4eb3d6b9f89ce49f6108a3a18e937f0,hash,18,0,0,42,HIGH
+scxzswx.lovestoblog.com,domain,17,1,44,32,HIGH
+icanhazip.com,domain,0,0,63,31,LOW
+185.27.134.154,ip,0,0,58,36,LOW
