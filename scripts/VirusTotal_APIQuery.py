@@ -85,6 +85,7 @@ def get_iocs(ioc_list):
 
     for ioc in ioc_list:
         ioc_type = get_ioc_type(ioc)
+        print("Querying VirusTotal: ", ioc)
 
         if ioc_type == "ip":
             result = get_virus_total_ip(ioc)
@@ -142,8 +143,12 @@ if __name__ == "__main__":
 
     sample_iocs = [
         "a5952e45646d033bff8380fc508a0b9527bb4943f2788046005f0e80e6ebb290",
+        "e263e41c5adb36fd21a26656f2478cbf5140846e872fd70c53341a71fb3d64f5",
+        "ccba027446f898e9c330e570ec4d9a0bd4eb3d6b9f89ce49f6108a3a18e937f0",
+        "d9c88c1a21fc918ce8082e3c71e47e8b7e694b6b1fab0d94693bba1ddc13e693",
         "scxzswx.lovestoblog.com",
-        "185.38.151.11"
+        "icanhazip.com",
+        "185.27.134.154"
     ]
 
     df = get_iocs(sample_iocs)
