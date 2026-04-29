@@ -59,9 +59,9 @@ This makes VirusTotal a critical component in modern incident response workflows
 ### 🔹 Phantom Stealer: Why This Threat Was Chosen 
 Phantom Stealer is an infostealer malware that targets browser credentials, saved passwords, cookies, cryptocurrency wallets, and Discord session tokens. Because it is able to exfiltrate sensitive data quickly after an infection, analysts have a very narrow window to detect and contain it. 
 
-The January 2026 sample obtained from malware-traffic-analysis.net was chosen because it represents a current, real world threat with clearly documented IOCs across multiple types of file hashes, IP addresses, and domains. This made it an ideal demonstration for how a python automated VirusTotal workflow can be applied to a realistic incident response scenario. Rather than using generic IOCs, working from an actual malware sample grounds the project in similar conditions to what a SOC analyst would have to deal with. 
+The January 2026 sample obtained from malware-traffic-analysis.net was chosen because it represents a current, real-world threat with clearly documented IOCs across multiple types of file hashes, IP addresses, and domains. This made it an ideal demonstration for how a Python-automated VirusTotal workflow can be applied to a realistic incident response scenario. Rather than using generic IOCs, working from an actual malware sample grounds the project in similar conditions to what a SOC analyst would have to deal with. 
 
-Phantom Stealer is usually delivered using phishing emails containing malicious ISO files that are designed to bypass email based antivirus scanning. Once executed it then exfiltrates stolen data through telegram bot APIs, Discord webhooks, and FTP servers. The reliance on external infrastructure means that domains and IP addresses associated with the sample are highly actionable IOCs. That is why blocking them at the network level is one of the most effective ways for containment that an analyst can take during an active incident. 
+Phantom Stealer is usually delivered using phishing emails containing malicious ISO files that are designed to bypass email-based antivirus scanning. Once executed, it then exfiltrates stolen data through Telegram bot APIs, Discord webhooks, and FTP servers. The reliance on external infrastructure means that domains and IP addresses associated with the sample are highly actionable IOCs. That is why blocking them at the network level is one of the most effective ways for containment that an analyst can take during an active incident. 
 ***
 
 ## 🔷 Methodology
@@ -71,7 +71,7 @@ Phantom Stealer is usually delivered using phishing emails containing malicious 
 - Python: scripting and automation
 - VirusTotal API: queried to enrich various IOCs
 - CSV file: used to store data returned from VirusTotal
-- matplotlib and tabulate: used to produce Visualizations (graphs saved to computer and table produced in console)
+- matplotlib and tabulate: used to produce Visualizations (graphs saved to the computer and a table produced in the console)
 
 ### 🔹 Data Source
 
@@ -116,7 +116,7 @@ The script interacts with the VirusTotal API by:
 3. Receiving API responses
 4. Parsing JSON responses  
 5. Extracting relevant detection statistics
-6. Applying buisness logic to extracted data 
+6. Applying business logic to extracted data 
 
 ### 🔹 Data Processing & Output
 
@@ -132,7 +132,7 @@ The script interacts with the VirusTotal API by:
 ### 🔹 Visualization
 
 - Detection results are visualized to support analysis
-- Generates pie charts for each IOC showing counts for Malicious, Suspicious, Harmless, Undetected  
+- Generates pie charts for each IOC showing counts for Malicious, Suspicious, Harmless, and Undetected  
 - Filters out zero-value detection categories for cleaner and more readable visualizations
 - Color-codes results (malicious = red, suspicious = yellow, harmless = green, undetected = gray)
 
@@ -142,7 +142,7 @@ The script interacts with the VirusTotal API by:
 
 The overall workflow of the project is as follows:
 
-1. Collect IOCs from malware sample  
+1. Collect IOCs from the malware sample  
 2. Provide IOCs as input (manually defined list or external file) 
 3. Query VirusTotal API for each IOC  
 4. Extract detection results  
@@ -161,7 +161,7 @@ Overall, 5 of the identified IOCs were returned from VirusTotal with high malici
 
 ![Tabulate Output from Script](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/Script-Output.png)
 
-The piecharts produced helped to visualize the data above. Buisness logic dicated that if an IOC was detected Malicious by 10 or more sources from VirusTotal, it would be marked as a high risk; 3 or more and it would be marked as medium risk, and lower that 3 Malicious detections would result it being classified as low risk. 
+The pie charts produced helped to visualize the data above. Business logic dictated that if an IOC was detected as malicious by 10 or more sources from VirusTotal, it would be marked as a high risk; 3 or more, and it would be marked as medium risk, and fewer than 3 Malicious detections would result in it being classified as low risk. 
 
 ![Example Visualization](https://github.com/JC118711/BFOR643-VirusTotal-IR-Analysis/blob/main/results/ioc_pie_chart_scxzswx.lovestoblog.com.png)
 
@@ -171,4 +171,4 @@ Overall, the data returned by VirusTotal quickly revealed to Incident Response A
 
 The project demonstrates the impact that automating IOC analysis with the VirusTotal API has on Incident Response. Automating the enrichment of IOCs can significantly improve the speed and effectiveness of incident response by enabling analysts to quickly validate threats and use community-based information to make informed decisions. By integrating scripting, data processing, and visualization, the workflow reduces manual effort while providing clear statistics that help support triage and threat prioritization.
 
-Future work on the project can look into the use of additional VirusTotal API endpoints, such as file behavior analysis and URL or file sandbox results. The endpoint provide additional context surrounding IOCs and can give IR Analysts a deeper understanding of the incident at hand. Additional visualization techniques could also be introduced to better highlight trends, relationships, and severity across large IOC datasets. Finally, further automation can be provided. Creating a python script to parse a .pcap file then feed potential IOCs into the current script helps further increase the speed of finding and verifying IOCs. Automation after the script highlighted here can also be introduced. Integrating the script with security tools to automatically block confirmed malicious domains and IP addresses, can help organizations and IR teams get ahead of incidents.
+Future work on the project can look into the use of additional VirusTotal API endpoints, such as file behavior analysis and URL or file sandbox results. The endpoint provides additional context surrounding IOCs and can give IR Analysts a deeper understanding of the incident at hand. Additional visualization techniques could also be introduced to better highlight trends, relationships, and severity across large IOC datasets. Finally, further automation can be provided. Creating a Python script to parse a .pcap file, then feed potential IOCs into the current script, helps further increase the speed of finding and verifying IOCs. Automation after the script highlighted here can also be introduced. Integrating the script with security tools to automatically block confirmed malicious domains and IP addresses can help organizations and IR teams get ahead of incidents.
